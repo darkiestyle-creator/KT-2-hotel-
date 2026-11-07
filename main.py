@@ -12,10 +12,15 @@
 
 print("Добро пожаловать!")
 name = input("Как вас зовут? ")
-if name == "":
+if name == "" or (name.startswith('-') and name[1:].isdigit()) or name.isdigit():
     name = "Гость"
 
+
 days = int(input("На сколько суток планируете остаться в отеле? "))
+
+if days <= 0:
+    days = 1
+
 spa_zona = input("Нужен ли доступ в спа-зону? (да/нет): ")
 
 price_day = 3000  # сутки
